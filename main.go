@@ -25,7 +25,7 @@ func main() {
 
 	domainRoutes.GET("/whois/:domain", func(c *gin.Context) {
 		domain := c.Param("domain")
-		controllers.Whois(domain)
+		controllers.Whois(domain, c.Writer)
 	})
 	router.Run()
 }
