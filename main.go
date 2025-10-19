@@ -27,5 +27,9 @@ func main() {
 		domain := c.Param("domain")
 		controllers.Whois(domain, c.Writer)
 	})
+	domainRoutes.POST("/tls", func(c *gin.Context) {
+		controllers.CheckTLS(c.Writer, c.Request)
+	})
+
 	router.Run()
 }
